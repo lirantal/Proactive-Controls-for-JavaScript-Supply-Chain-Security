@@ -24,13 +24,10 @@ teams whom are managing artifacts proxies.
 ### Use .npmrc
 
 
-✅ Use a `.npmrc` configuration file in the project's source code repository
-
-✅ Provision a global `.npmrc` with internal proxy
-
-❌ Do not rely on `NPM_CONFIG_REGISTRY`
-
-❌ Do not rely on `npm config set registry <http://...>`
+- ✅ Use a `.npmrc` configuration file in the project's source code repository
+- ✅ Provision a global `.npmrc` with internal proxy
+- ❌ Do not rely on `NPM_CONFIG_REGISTRY`
+- ❌ Do not rely on `npm config set registry <http://...>`
 
 
 #### ℹ️ Details
