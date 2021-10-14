@@ -4,7 +4,52 @@ The following are a list of secure architectural patterns, security best practic
 
 ## Secure use of Build Automation Systems
 
-## Secure use of Package Managers
+### Deterministic dependency tree
+
+- ✅ Always install dependency trees with deterministic version resolutions
+- ❌ Do not perform semantic versioning resolution of dependencies during build time, as this will potentially install malicious or compromised versions.
+
+Depending on your package manager of choice, ensure you are following this guideline with:
+* `yarn install --frozen-lockfile`.
+* `npm ci`.
+
+## Secure use of Package Registries
+
+### Avoid publishing secrets to the npm registry
+
+- ✅ Use the `files` key in `package.json` to create an allowlist of files that will be packaged and published to the registry.
+- ❌ Do not use both `.gitignore` and `.npmignore` as the latter will be used as the source of truth and everything not specified in it, will be published to the registry.
+
+### Enable Multi-factor Authentication 
+
+- ✅ Enable 2FA for your account
+- ✅ Use automation tokens CI-based automated publishing process of npm packages
+
+## Use organization scopes
+
+- ✅ Register and manage your npm packages under an organization scope reserved namespace
+
+## Secure Package Management
+
+### Never allow pre/post install hooks
+
+- ✅ Use the `ignore-scripts` configuration option in your `.npmrc` to disallow the user of arbitrary command execution by 3rd party dependencies
+
+### Use secure versions of npm
+
+npm version 7 and above have incorporated several security-enhanced workflows:
+
+- ✅ The `ignore-scripts` configuration option is applied only for install-lifecycle hooks.
+
+### Enforce trusted package origins
+
+- ✅ Enforce trusted sources of package origins to avoid lockfile injection. See [lockfile-lint](https://github.com/lirantal/lockfile-lint)
+
+
+### Review open source package health
+
+- ✅ Consult the current maintenance state of a package before installing it
+- ❌ Do not blindly install dependencies from the CLI using copy/paste from untrusted sources, and be cautious of misspelling, both of which can expose you to threats of typosqautting attacks.
 
 ## Secure use of Private Proxies
 
