@@ -1,5 +1,9 @@
 # Proactive Controls for JavaScript Supply Chain Security
 
+The following are a list of secure architectural patterns, security best practices, and secure guidelines that promote defense mechanisms for supply chain security in the JavaScript ecosystem.
+
+## Secure use of Build Automation Systems
+
 ## Secure use of Package Managers
 
 ## Secure use of Private Proxies
