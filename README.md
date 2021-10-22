@@ -2,6 +2,21 @@
 
 The following are a list of secure architectural patterns, security best practices, and secure guidelines that promote defense mechanisms for supply chain security in the JavaScript ecosystem.
 
+## Secure project management
+
+### Include a SECURITY.TXT
+
+- ✅ Include a `SECURITY.TXT` file in your repository's root directory to communicate your security policy, your disclosure policy and how to overall responsibly disclose security bugs.
+- ❌ Not having a `SECURITY.TXT` file may result in security reports publicly disclosed which puts users at risk
+
+### Enforce 2FA for project members
+
+TBD 
+
+### Use GitHub environments to separate secrets
+
+TBD
+
 ## Secure use of Build Automation Systems
 
 ### Deterministic dependency tree
