@@ -6,8 +6,10 @@ The following are a list of secure architectural patterns, security best practic
 
 ### Include a SECURITY.TXT
 
-- ✅ Include a `SECURITY.TXT` file in your repository's root directory to communicate your security policy, your disclosure policy and how to overall responsibly disclose security bugs.
-- ❌ Not having a `SECURITY.TXT` file may result in security reports publicly disclosed which puts users at risk
+- ✅ Include a `SECURITY.md` file in your repository's root directory to communicate your security policy, your disclosure policy and how to overall responsibly disclose security bugs.
+- ❌ Not having a `SECURITY.md` file may result in security reports publicly disclosed which puts users at risk
+
+GitHub features built-in support for `SECURITY.md` files which exposes that policy via the GitHub UI at _Security->Security Policy_
 
 ### Enforce 2FA for project members
 
