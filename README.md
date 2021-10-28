@@ -37,6 +37,13 @@ CI systems and their ecosystem may provide 3rd-party plugins to assist in the bu
 - ✅ Always use an immutable version tag such as a stable release (`v1`) or a version hash 
 - ❌ Do not use a `latest` or `master` version modifiers, which could resolve in CI run-time to unvetted and potentially malicious versions of artifacts that they pull in during the build.
 
+### Secure use of secrets in CI
+
+CI systems may need access to secrets in the form of publish tokens, APIs keys or other credentials. 
+
+- ✅ Always use the CI system secrets stroage mechanism
+- ❌ Never store secrets in any form, such as configuration file in cache, general plaintext environment variables, or other methods which print to the build logs.
+
 ## Secure use of Package Registries
 
 ### Avoid publishing secrets to the npm registry
