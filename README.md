@@ -30,6 +30,13 @@ Depending on your package manager of choice, ensure you are following this guide
 * `yarn install --frozen-lockfile`.
 * `npm ci`.
 
+### Pin trusted versions of CI plugins
+
+CI systems and their ecosystem may provide 3rd-party plugins to assist in the build process. Using these creates an exposure to supply chain security concerns.
+
+- ✅ Always use an immutable version tag such as a stable release (`v1`) or a version hash 
+- ❌ Do not use a `latest` or `master` version modifiers, which could resolve in CI run-time to unvetted and potentially malicious versions of artifacts that they pull in during the build.
+
 ## Secure use of Package Registries
 
 ### Avoid publishing secrets to the npm registry
