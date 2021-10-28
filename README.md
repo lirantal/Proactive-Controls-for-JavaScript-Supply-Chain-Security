@@ -44,6 +44,14 @@ CI systems may need access to secrets in the form of publish tokens, APIs keys o
 - ✅ Always use the CI system secrets stroage mechanism
 - ❌ Never store secrets in any form, such as configuration file in cache, general plaintext environment variables, or other methods which print to the build logs.
 
+### Do not expose sensitive data via cache keys
+
+It is a common practice in CI systems to main caches of installed artifacts, file system layers and otherwise. In some cases, it may be required to supply a unique key to associate the cache with.
+
+- ✅ Always use a generic and publicly accessible data point for cache keys, such as `package.json`, `requirements.txt`, etc.
+- ❌ Never base the cache key on sensitive information like your repository token (`GITHUB_TOKEN`), or other sort of credentials.
+
+
 ## Secure use of Package Registries
 
 ### Avoid publishing secrets to the npm registry
