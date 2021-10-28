@@ -51,6 +51,12 @@ It is a common practice in CI systems to main caches of installed artifacts, fil
 - ✅ Always use a generic and publicly accessible data point for cache keys, such as `package.json`, `requirements.txt`, etc.
 - ❌ Never base the cache key on sensitive information like your repository token (`GITHUB_TOKEN`), or other sort of credentials.
 
+### Never store sensitive information in build artifacts
+
+CI systems may provide storage for artifacts created as a result of a build, or a CI run.
+
+- ✅ Always generate artifacts with only publicly accessible information 
+- ❌ Never store any sensitive information in built artifacts as they are commonly made available to everyone to consume
 
 ## Secure use of Package Registries
 
