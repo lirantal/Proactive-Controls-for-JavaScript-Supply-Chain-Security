@@ -4,10 +4,19 @@ The following are a list of secure architectural patterns, security best practic
 
 ## Secure project management
 
+### Sign your commits and tags
+
+- ✅ Sign your git commits with a PGP key to ensure that your identity as a GitHub committer has high integrity assurance. 
+- ❌ If your commits do not contain the signature metadata that ensures your identity then others can potentially impersonate your account.
+
+GitHub marks commits and tags visually in the UI with a `verified` badge to identify work that has been signed using a cryptographic key, whether locally on the git repository, or if the key was uploaded to GitHub. Consult the [GitHub commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) documentation for further details on setup.
+
+Note that, if your GitHub account is compromised then the attacker is able to modify the developer account settings in a way that allows them to upload a new signature key and hence establish a `verified` badge, and so, it is advised to distribute the signing key using domains outside of GitHub.
+
 ### Include a SECURITY.TXT
 
 - ✅ Include a `SECURITY.md` file in your repository's root directory to communicate your security policy, your disclosure policy and how to overall responsibly disclose security bugs.
-- ❌ Not having a `SECURITY.md` file may result in security reports publicly disclosed which puts users at risk
+- ❌ Not having a `SECURITY.md` file may result in security reports publicly disclosed which puts users at risk.
 
 GitHub features built-in support for `SECURITY.md` files which exposes that policy via the GitHub UI at _Security->Security Policy_
 
