@@ -13,6 +13,7 @@ The following are a list of secure architectural patterns, security best practic
   - [Use trusted providers for CI plugins or containers](#use-trusted-providers-for-ci-plugins-or-containers)
   - [Secure use of secrets in CI](#secure-use-of-secrets-in-ci)
   - [Do not expose sensitive data via cache keys](#do-not-expose-sensitive-data-via-cache-keys)
+  - [Do not expose sensitive data via cache storage](#do-not-expose-sensitive-data-via-cache-storage)
   - [Never store sensitive information in build artifacts](#never-store-sensitive-information-in-build-artifacts)
   - [Limit CI execution to trusted collaborators](#limit-ci-execution-to-trusted-collaborators)
   - [Limit CI execution to trusted collaborators](#limit-ci-execution-to-trusted-collaborators-1)
@@ -94,10 +95,17 @@ CI systems may need access to secrets in the form of publish tokens, APIs keys o
 
 ### Do not expose sensitive data via cache keys
 
-It is a common practice in CI systems to main caches of installed artifacts, file system layers and otherwise. In some cases, it may be required to supply a unique key to associate the cache with.
+It is a common practice in CI systems to maintain caches of installed artifacts, file system layers and otherwise. In some cases, it may be required to supply a unique key to associate the cache with.
 
 - ✅ Always use a generic and publicly accessible data point for cache keys, such as `package.json`, `requirements.txt`, etc.
 - ❌ Never base the cache key on sensitive information like your repository token (`GITHUB_TOKEN`), or other sort of credentials.
+
+### Do not expose sensitive data via cache storage
+
+CI system cache data may be unwantedly exposed to the public or easily made accessible to external project collaborators.
+
+- ✅ Always store data in cache that is of public knowledge
+- ❌ Never store sensitive information as part of the cached data of the CI system as these would be vulnerable to exfiltration and data leaks.
 
 ### Never store sensitive information in build artifacts
 
