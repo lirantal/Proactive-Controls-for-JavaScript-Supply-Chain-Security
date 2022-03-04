@@ -104,6 +104,8 @@ It is a common practice in CI systems to maintain caches of installed artifacts,
 
 CI system cache data may be unwantedly exposed to the public or easily made accessible to external project collaborators.
 
+For example, with GitHub Actions, collaborators who fork a repository will be able to create pull requests and access the workflow cache.
+
 - ✅ Always store data in cache that is of public knowledge
 - ❌ Never store sensitive information as part of the cached data of the CI system as these would be vulnerable to exfiltration and data leaks.
 
