@@ -77,6 +77,10 @@ While pinning specific versions of vendored plugins used within CI ensures that 
 - ✅ Only allow usage of trusted vendors in 3rd-party CI plugins
 - ❌ Rogue and un-vetted usage of 3rd-party CI plugins may be a victim of low maintenance which could lead to malicious account takeovers, unnoticed malicious code injection, and generally a target of supply chain attacks.
 
+ℹ️ **Details**
+
+GitHub Actions users can consult the following setting for [allowing specific actions to run](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-specific-actions-to-run)
+
 ### Secure use of secrets in CI
 
 CI systems may need access to secrets in the form of publish tokens, APIs keys or other credentials. 
