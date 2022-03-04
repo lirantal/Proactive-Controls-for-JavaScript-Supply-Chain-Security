@@ -109,7 +109,7 @@ CI system cache data may be unwantedly exposed to the public or easily made acce
 
 ### Never store sensitive information in build artifacts
 
-CI systems may provide storage for artifacts created as a result of a build, or a CI run.
+CI systems may provide storage for artifacts created as a result of a build, or a CI run. It is important to note that build logs are an inseparable part of the build artifact and they should never contain any sensitive information either.
 
 - ✅ Always generate artifacts with only publicly accessible information 
 - ❌ Never store any sensitive information in built artifacts as they are commonly made available to everyone to consume
