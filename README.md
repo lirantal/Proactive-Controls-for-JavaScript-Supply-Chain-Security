@@ -10,6 +10,7 @@ The following are a list of secure architectural patterns, security best practic
 - [Secure use of Build Automation Systems](#secure-use-of-build-automation-systems)
   - [Deterministic dependency tree](#deterministic-dependency-tree)
   - [Pin trusted versions of CI plugins](#pin-trusted-versions-of-ci-plugins)
+  - [Use trusted providers for CI plugins](#use-trusted-providers-for-ci-plugins)
   - [Secure use of secrets in CI](#secure-use-of-secrets-in-ci)
   - [Do not expose sensitive data via cache keys](#do-not-expose-sensitive-data-via-cache-keys)
   - [Never store sensitive information in build artifacts](#never-store-sensitive-information-in-build-artifacts)
@@ -68,6 +69,13 @@ CI systems and their ecosystem may provide 3rd-party plugins to assist in the bu
 
 - ✅ Always use an immutable version tag such as a stable release (`v1`) or a version hash 
 - ❌ Do not use a `latest` or `master` version modifiers, which could resolve in CI run-time to un-vetted and potentially malicious versions of artifacts that they pull in during the build.
+
+### Use trusted providers for CI plugins
+
+While pinning specific versions of vendored plugins used within CI ensures that you always maintain a deterministic build and the same verified plugin code, you might still want to limit the use of those plugins entirely to only vendors that have been verified or scrutinized to an extent.
+
+- ✅ Only allow usage of trusted vendors in 3rd-party CI plugins
+- ❌ Rogue and un-vetted usage of 3rd-party CI plugins may be a victim of low maintenance which could lead to malicious account takeovers, unnoticed malicious code injection, and generally a target of supply chain attacks.
 
 ### Secure use of secrets in CI
 
