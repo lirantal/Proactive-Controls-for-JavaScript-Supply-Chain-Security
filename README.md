@@ -29,7 +29,7 @@ The following are a list of secure architectural patterns, security best practic
 
 ### Sign your commits and tags
 
-- ✅ Sign your git commits with a PGP key to ensure that your identity as a GitHub committer has high integrity amarkssurance. 
+- ✅ Sign your git commits with a PGP key to ensure that your identity as a GitHub committer has high integrity mark assurance. 
 - ❌ If your commits do not contain the signature metadata that ensures your identity then others can potentially impersonate your account.
 
 GitHub marks commits and tags visually in the UI with a `verified` badge to identify work that has been signed using a cryptographic key, whether locally on the git repository, or if the key was uploaded to GitHub. Consult the [GitHub commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) documentation for further details on setup.
@@ -67,13 +67,13 @@ Depending on your package manager of choice, ensure you are following this guide
 CI systems and their ecosystem may provide 3rd-party plugins to assist in the build process. Using these creates an exposure to supply chain security concerns.
 
 - ✅ Always use an immutable version tag such as a stable release (`v1`) or a version hash 
-- ❌ Do not use a `latest` or `master` version modifiers, which could resolve in CI run-time to unvetted and potentially malicious versions of artifacts that they pull in during the build.
+- ❌ Do not use a `latest` or `master` version modifiers, which could resolve in CI run-time to un-vetted and potentially malicious versions of artifacts that they pull in during the build.
 
 ### Secure use of secrets in CI
 
 CI systems may need access to secrets in the form of publish tokens, APIs keys or other credentials. 
 
-- ✅ Always use the CI system secrets stroage mechanism
+- ✅ Always use the CI system secrets storage mechanism
 - ❌ Never store secrets in any form, such as configuration file in cache, general plaintext environment variables, or other methods which print to the build logs.
 
 ### Do not expose sensitive data via cache keys
@@ -126,29 +126,21 @@ npm version 7 and above have incorporated several security-enhanced workflows:
 ### Review open source package health
 
 - ✅ Consult the current maintenance state of a package before installing it
-- ❌ Do not blindly install dependencies from the CLI using copy/paste from untrusted sources, and be cautious of misspelling, both of which can expose you to threats of typosqautting attacks.
+- ❌ Do not blindly install dependencies from the CLI using copy/paste from untrusted sources, and be cautious of misspelling, both of which can expose you to threats of typosquatting attacks.
 
 ## Secure use of Private Proxies
 
 The use of private proxies as a middle tier to interface with upstream open registries
-is a well known and commonly used practice within organizations and enterprsies. These proxies
-are often used in order to speed up artifacts downloads, save bandwidth, and serve as a local
-storage of private packages and libraries which has IP associated with it and the business
-wishes to not put in the public domain.
+is a well known and commonly used practice within organizations and enterprises. These proxies are often used in order to speed up artifacts downloads, save bandwidth, and serve as a local storage of private packages and libraries which has IP associated with it and the business wishes to not put in the public domain.
 
-These private proxies can be a commercially deployed product, like JFrog's Artifactory, or an
-open source community project like Verdaccio.
+These private proxies can be a commercially deployed product, like JFrog's Artifactory, or an open source community project like Verdaccio.
 
 A security research disclosure in 2021, dubbed [Dependency Confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-pointed weaknesses in how private packages are managed, which may allow malicious actors to
-replace an internal private package with a malicious one in the attacker's control.
+pointed weaknesses in how private packages are managed, which may allow malicious actors to replace an internal private package with a malicious one in the attacker's control.
 
-The security best practices layed out in this section are with regards to mitigating, and detecting
-occurences of Dependency Confusion, and they should be followed by software engineers and operations
-teams whom are managing artifacts proxies.
+The security best practices layed out in this section are with regards to mitigating, and detecting occurrences of Dependency Confusion, and they should be followed by software engineers and operations teams whom are managing artifacts proxies.
 
 ### Use .npmrc
-
 
 - ✅ Use a `.npmrc` configuration file in the project's source code repository
 - ✅ Provision a global `.npmrc` with internal proxy
@@ -157,15 +149,8 @@ teams whom are managing artifacts proxies.
 
 ℹ️ **Details**
 
-It may sound obvious but put all the protections in place
-so that a default install of your project doesn’t expose you to dependency confusion
+It may sound obvious but put all the protections in place so that a default install of your project doesn’t expose you to dependency confusion
 
-The core issue resides with the concern of not having the proper private npm proxy configuration.
-If a developer, or a CI system, misses on having this configuration, then you’re potentially vulnerable.
+The core issue resides with the concern of not having the proper private npm proxy configuration. If a developer, or a CI system, misses on having this configuration, then you’re potentially vulnerable.
 
-Also - 
-If you can provision and enforce a global .npmrc file for all users and their development environment it will
-help to place the internal proxy at it (when configured correctly) so that no accidental public registry metadata fetching will happen
-in case a developer forgets to add the internal proxy as part of the configuration, and then runs npm install, which will potentially
-have you vulnerable to dependency confusion
-
+Also - If you can provision and enforce a global .npmrc file for all users and their development environment it will help to place the internal proxy at it (when configured correctly) so that no accidental public registry metadata fetching will happen in case a developer forgets to add the internal proxy as part of the configuration, and then runs npm install, which will potentially have you vulnerable to dependency confusion
