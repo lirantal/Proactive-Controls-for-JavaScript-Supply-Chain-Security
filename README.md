@@ -1,12 +1,35 @@
-# Proactive Controls for JavaScript Supply Chain Security
+<h1>Proactive Controls for JavaScript Supply Chain Security</h1>
 
 The following are a list of secure architectural patterns, security best practices, and secure guidelines that promote defense mechanisms for supply chain security in the JavaScript ecosystem.
+
+- [Secure project management](#secure-project-management)
+  - [Sign your commits and tags](#sign-your-commits-and-tags)
+  - [Include a SECURITY.TXT](#include-a-securitytxt)
+  - [Enforce 2FA for project members](#enforce-2fa-for-project-members)
+  - [Use GitHub environments to separate secrets](#use-github-environments-to-separate-secrets)
+- [Secure use of Build Automation Systems](#secure-use-of-build-automation-systems)
+  - [Deterministic dependency tree](#deterministic-dependency-tree)
+  - [Pin trusted versions of CI plugins](#pin-trusted-versions-of-ci-plugins)
+  - [Secure use of secrets in CI](#secure-use-of-secrets-in-ci)
+  - [Do not expose sensitive data via cache keys](#do-not-expose-sensitive-data-via-cache-keys)
+  - [Never store sensitive information in build artifacts](#never-store-sensitive-information-in-build-artifacts)
+- [Secure use of Package Registries](#secure-use-of-package-registries)
+  - [Avoid publishing secrets to the npm registry](#avoid-publishing-secrets-to-the-npm-registry)
+  - [Enable Multi-factor Authentication](#enable-multi-factor-authentication)
+- [Use organization scopes](#use-organization-scopes)
+- [Secure Package Management](#secure-package-management)
+  - [Never allow pre/post install hooks](#never-allow-prepost-install-hooks)
+  - [Use secure versions of npm](#use-secure-versions-of-npm)
+  - [Enforce trusted package origins](#enforce-trusted-package-origins)
+  - [Review open source package health](#review-open-source-package-health)
+- [Secure use of Private Proxies](#secure-use-of-private-proxies)
+  - [Use .npmrc](#use-npmrc)
 
 ## Secure project management
 
 ### Sign your commits and tags
 
-- ✅ Sign your git commits with a PGP key to ensure that your identity as a GitHub committer has high integrity assurance. 
+- ✅ Sign your git commits with a PGP key to ensure that your identity as a GitHub committer has high integrity amarkssurance. 
 - ❌ If your commits do not contain the signature metadata that ensures your identity then others can potentially impersonate your account.
 
 GitHub marks commits and tags visually in the UI with a `verified` badge to identify work that has been signed using a cryptographic key, whether locally on the git repository, or if the key was uploaded to GitHub. Consult the [GitHub commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) documentation for further details on setup.
