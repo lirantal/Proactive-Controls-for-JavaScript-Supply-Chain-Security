@@ -15,6 +15,7 @@ The following are a list of secure architectural patterns, security best practic
   - [Do not expose sensitive data via cache keys](#do-not-expose-sensitive-data-via-cache-keys)
   - [Never store sensitive information in build artifacts](#never-store-sensitive-information-in-build-artifacts)
   - [Limit CI execution to trusted collaborators](#limit-ci-execution-to-trusted-collaborators)
+  - [Limit CI execution to trusted collaborators](#limit-ci-execution-to-trusted-collaborators-1)
 - [Secure use of Package Registries](#secure-use-of-package-registries)
   - [Avoid publishing secrets to the npm registry](#avoid-publishing-secrets-to-the-npm-registry)
   - [Enable Multi-factor Authentication](#enable-multi-factor-authentication)
@@ -112,6 +113,19 @@ Depending on how the CI system is configured, and the internal processes and wor
 
 - ✅ Disable automated CI system runs for anyone who isn't a trusted collaborator and default to requiring maintainer or trusted collaborator approvals for any CI system run.
 - ❌ First-time contributors to your project also carry the risk of potentially being malicious actors who may abuse an ill-configured CI system to exfiltrate information and higher impact damage. 
+
+ℹ️ **Details**
+
+GitHub Actions users can consult the following setting for [approving workflow runs from public forks](https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks#about-workflow-runs-from-public-forks)
+
+### Limit CI execution to trusted collaborators
+
+In open source software development model, such as that which is facilitated by GitHub, anyone is allowed to fork a repository, and submit a code change via a pull request, which results in automated CI systems getting triggered and executed. 
+
+Depending on how the CI system is configured, and the internal processes and workflows of these, a malicious collaborator may exploit the CI system to steal credentials or abuse the project's source code in one way or another.
+
+- ✅ Disable automated CI system runs for anyone who isn't a trusted collaborator and default to requiring maintainer or trusted collaborator approvals for any CI system run.
+- ❌ First-time contributors to your project also carry the risk of potentially being malicious actors who may abuse an ill-configured CI system to exfiltrate information and higher impact damage.
 
 ℹ️ **Details**
 
