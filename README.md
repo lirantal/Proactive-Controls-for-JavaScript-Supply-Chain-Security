@@ -3,6 +3,7 @@
 The following are a list of secure architectural patterns, security best practices, and secure guidelines that promote defense mechanisms for supply chain security in the JavaScript ecosystem.
 
 - [Secure project management](#secure-project-management)
+  - [Branch protection rules](#branch-protection-rules)
   - [Sign your commits and tags](#sign-your-commits-and-tags)
   - [Include a SECURITY.TXT](#include-a-securitytxt)
   - [Enforce 2FA for project members](#enforce-2fa-for-project-members)
@@ -30,6 +31,16 @@ The following are a list of secure architectural patterns, security best practic
   - [Use .npmrc](#use-npmrc)
 
 ## Secure project management
+
+### Branch protection rules
+
+- ✅ Enable branch protection rules which prevent rogue commits from bypassing reviewer eyes and straight into the main trunk of development
+- ❌ Malicious actors can target specific weak git accounts with committer access to the repository and upon takeover to commit and push malicious code to the code repository's primary branch
+
+Establish a set of branch protection rules which wouldn't allow anyone, malicious or otherwise, to directly push code to the main line of development. Such tools which exist on the GitHub platform as a reference would be:
+1. Require code of specific highly sensitive branches to be added via the use of the Pull Request methodology
+2. Require approval of at least one or more code collaborators
+3. Require an organization-wide setting that disallows GitHub Actions from approving pull requests (see how that was possible before [Bypassing required reviews using GitHub Actions](https://medium.com/cider-sec/bypassing-required-reviews-using-github-actions-6e1b29135cc7))
 
 ### Sign your commits and tags
 
