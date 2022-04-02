@@ -21,6 +21,7 @@ The following are a list of secure architectural patterns, security best practic
 - [Secure use of Package Registries](#secure-use-of-package-registries)
   - [Avoid publishing secrets to the npm registry](#avoid-publishing-secrets-to-the-npm-registry)
   - [Enable Multi-factor Authentication](#enable-multi-factor-authentication)
+- [Secure use of Project Artifacts](#secure-use-of-project-artifacts)
 - [Use organization scopes](#use-organization-scopes)
 - [Secure Package Management](#secure-package-management)
   - [Never allow pre/post install hooks](#never-allow-prepost-install-hooks)
@@ -165,6 +166,15 @@ GitHub Actions users can consult the following setting for [approving workflow r
 
 - ✅ Enable 2FA for your account
 - ✅ Use automation tokens CI-based automated publishing process of npm packages
+
+## Secure use of Project Artifacts
+
+### Avoid leaking secrets in Docker images
+
+- ✅ Use comprehensive Docker image secrets scanners that are able to detect a wide spectrum of secret types, as well as able to widen the scan into image layers, and build time arguments in image history.
+- ❌ You risk leaking sensitive data that may be used by adverserial threat actors. See the case of [codecov data leak](https://blog.gitguardian.com/codecov-supply-chain-breach).
+
+As a reference, [ggshield](https://github.com/GitGuardian/ggshield) is a recommended Docker image secrets scanner.
 
 ## Use organization scopes
 
